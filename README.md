@@ -1,11 +1,12 @@
 # Issue with sending large-ish CSV files to Flask
 
-I am trying to send a csv file as a base64 encoded string in the body of a post request to a flask server. It works find for small files. But when I try to post a file above ~150k the server does not respond and there is no error message. It seems to get hung up on `body = request.get_json()`. This non-responsiveness happens through postman and node. To throw a wrench into the problem, I can submit the file fine using pythons requests library. I am not sure what is causing this or what the difference between the three requests. The headers all look really similar and are included below. I have included the working python request (test.py), the not working node request (jstest.js) and the not working postman collection. Thanks for any help.
+I am trying to send a csv file as a base64 encoded string in the body of a post request to a flask server. It works find for small files. But when I try to post a file above ~150k the server does not respond and there is no error message. It seems to get hung up on `body = request.get_json()`. This non-responsiveness happens through postman and node. To throw a wrench into the problem, I can submit the file fine using pythons requests library. I am not sure what is causing this or what the difference between the three requests. The headers all look really similar and are included below. I have included the minimal server (server.py), working python request (test.py), the not working node request (jstest.js) and the not working postman collection. Thanks for any help.
 
 ## Install
 ```
 git clone https://github.com/mdemin914/flask-largeish-csv-file-error-reproduction.git
-pip install flask, requests
+cd flask-largeish-csv-file-error-reproduction/
+pip install flask requests
 ```
 ### Steps to Reproduce
 - Run the server 
